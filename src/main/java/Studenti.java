@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class Studenti {
@@ -45,6 +46,15 @@ public boolean esteIntegralist() {
     return note.size()==5&&note.stream().allMatch(i->i>=5);
 
 }
+
+
+    public void genereazaNoteAleatorii() {
+        Random rand = new Random();
+        note.clear();
+        for (int i = 0; i < 5; i++) {
+            note.add(rand.nextInt(7) + 4);
+        }
+    }
 
     public long numarRestante() {
         return note.stream().filter(n -> n < 5).count();
